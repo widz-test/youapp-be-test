@@ -31,7 +31,7 @@ export default (): Config => ({
     mongo: {
       host: process.env.DB_MONGO_HOST || '127.0.0.1',
       port: parseInt(process.env.DB_MONGO_PORT, 0) || 27017,
-      name: process.env.DB_MONGO_USERNAME,
+      name: process.env.DB_MONGO_DATABASE,
       user: process.env.DB_MONGO_USERNAME,
       pass: process.env.DB_MONGO_PASSWORD,
       auth: process.env.DB_MONGO_AUTH_SOURCE
