@@ -8,6 +8,9 @@ import { RegisterModule } from './register/register.module';
   controllers: [AuthController],
   providers: [AuthService],
   exports: [AuthService],
-  imports: [LoginModule, RegisterModule]
+  imports: [
+    LoginModule, 
+    RegisterModule
+  ]
 })
 export class AuthModule {}

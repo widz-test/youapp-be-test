@@ -1,5 +1,5 @@
 import { BaseRepository } from "./base.repository";
-import { UserSchema } from "../model/user.model";
+import { User, UserSchema } from "../model/user.model";
 
 export class UserRepository extends BaseRepository {
     modelName(): string {
@@ -8,5 +8,14 @@ export class UserRepository extends BaseRepository {
 
     modelSchema(): any {
         return UserSchema;
+    }
+
+    async findByUsernameOrEmail(username: string): Promise<User|null> {
+        return this.model().findOne({
+            $or: [
+                {'username': {'$regex': `^${username}$`, $options:'i'}},
+                {'email': {'$regex': `^${username}$`, $options:'i'}}
+            ]
+        })
     }
 }

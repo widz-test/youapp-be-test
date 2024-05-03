@@ -15,8 +15,14 @@ export interface QueueConfig {
   hearbeat: number
 }
 
+export interface TokenConfig {
+  secret: string;
+  expire: number;
+}
+
 export interface Config {
   port: number,
+  token: TokenConfig,
   database: {
     mongo: DatabaseConfig
   },
@@ -27,6 +33,10 @@ export interface Config {
 
 export default (): Config => ({
   port: parseInt(process.env.NODE_PORT, 0) || 3000,
+  token: {
+    secret: process.env.TOKEN_SECRET,
+    expire: parseInt(process.env.TOKEN_EXPIRE, 0) || 3600
+  },
   database: {
     mongo: {
       host: process.env.DB_MONGO_HOST || '127.0.0.1',

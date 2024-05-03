@@ -3,7 +3,7 @@ import { UserRepository } from "src/entity/repository/user.repository";
 import { RegisterDto } from "../dto/register.dto";
 import { User } from "src/entity/model/user.model";
 import { hashPassword } from "../utils/bcrypt.utils";
-import { findUserByEmail, findUserByUsername } from "../utils/user.utils";
+import { checkUserByEmail, checkUserByUsername } from "../../common/utils/user.utils";
 
 @Injectable()
 export class RegisterService {
@@ -12,8 +12,8 @@ export class RegisterService {
     async register(payload: RegisterDto): Promise<User> {
         // Validation
         await Promise.all([
-            await findUserByEmail(payload.email, this.userRepository),
-            await findUserByUsername(payload.username, this.userRepository)
+            await checkUserByEmail(payload.email, this.userRepository),
+            await checkUserByUsername(payload.username, this.userRepository)
         ])
         const password = await hashPassword(payload.password);
         return await this.userRepository.create({
