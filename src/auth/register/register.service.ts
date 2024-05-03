@@ -17,6 +17,7 @@ export class RegisterService {
         ])
         const password = await hashPassword(payload.password);
         return await this.userRepository.create({
+            profile_id: "",
             username: payload.username.toLowerCase(),
             email: payload.email.toLowerCase(),
             password: password,

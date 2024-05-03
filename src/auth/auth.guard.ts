@@ -1,3 +1,4 @@
+import { UserRepository } from "src/entity/repository/user.repository";
 import {
   CanActivate,
   ExecutionContext,
@@ -9,6 +10,7 @@ import { JwtService } from '@nestjs/jwt';
 import { Request } from 'express';
 import { TokenConfig } from "src/common/config/configuration";
 import { IS_PUBLIC_KEY } from "src/common/decorator/public.decorator";
+import { findUserByUsernameOrEmail } from "src/common/utils/user.utils";
 import { UnauthorizedException } from "src/exception/unauthorized.exception";
 
 @Injectable()
@@ -16,7 +18,8 @@ export class AuthGuard implements CanActivate {
   constructor(
     private readonly jwtService: JwtService,
     private readonly reflector: Reflector,
-    private readonly configService: ConfigService
+    private readonly configService: ConfigService,
+    private readonly userRepository: UserRepository
   ) {}
 
   async canActivate(context: ExecutionContext): Promise<boolean> {
@@ -34,6 +37,7 @@ export class AuthGuard implements CanActivate {
       throw new UnauthorizedException();
     }
     try {
+      // Validate token
       const tokenConfig = this.configService.get<TokenConfig>("token");
       const payload = await this.jwtService.verifyAsync(
         token,
@@ -41,7 +45,13 @@ export class AuthGuard implements CanActivate {
           secret: tokenConfig.secret
         }
       );
-      request['user'] = payload;
+      // Find user
+      const { username } = payload ?? {};
+      const user = await findUserByUsernameOrEmail(username ?? "", this.userRepository);
+      if (!user) {
+        throw new UnauthorizedException();
+      }
+      request['user'] = user;
     } catch {
       throw new UnauthorizedException();
     }
