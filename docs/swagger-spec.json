@@ -1,0 +1,1106 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Test",
+    "description": "",
+    "version": "1.0.0"
+  },
+  "tags": [
+    {
+      "name": "YouApp"
+    }
+  ],
+  "paths": {
+    "/api/register": {
+      "post": {
+        "summary": "Auth Register",
+        "x-apidog-folder": "YouApp",
+        "x-apidog-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "YouApp"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  },
+                  "confirm_password": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "username",
+                  "email",
+                  "password",
+                  "confirm_password"
+                ],
+                "x-apidog-ignore-properties": [],
+                "x-apidog-orders": [
+                  "username",
+                  "email",
+                  "password",
+                  "confirm_password"
+                ]
+              },
+              "example": {
+                "username": "john_16",
+                "email": "john.16@test.xxx",
+                "password": "Pass@word1!",
+                "confirm_password": "Pass@word1!"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "boolean"
+                    },
+                    "status_code": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "username": {
+                          "type": "string"
+                        },
+                        "email": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "username",
+                        "email"
+                      ],
+                      "x-apidog-ignore-properties": [],
+                      "x-apidog-orders": [
+                        "id",
+                        "username",
+                        "email"
+                      ]
+                    },
+                    "timestamp": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "status_code",
+                    "message",
+                    "data",
+                    "timestamp"
+                  ],
+                  "x-apidog-ignore-properties": [],
+                  "x-apidog-orders": [
+                    "status",
+                    "status_code",
+                    "message",
+                    "data",
+                    "timestamp"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": true,
+                      "status_code": true,
+                      "message": "Success",
+                      "data": {
+                        "id": "6634574b928d44c1947bd7c3",
+                        "username": "john_15",
+                        "email": "john.15@test.xxx"
+                      },
+                      "timestamp": "2024-05-03T03:17:31.827Z"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apidog": "https://apidog.com/web/project/520001/apis/api-7048022-run"
+      }
+    },
+    "/api/login": {
+      "post": {
+        "summary": "Auth Login",
+        "x-apidog-folder": "YouApp",
+        "x-apidog-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "YouApp"
+        ],
+        "parameters": [],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "username",
+                  "password"
+                ],
+                "x-apidog-ignore-properties": [],
+                "x-apidog-orders": [
+                  "username",
+                  "password"
+                ]
+              },
+              "example": {
+                "username": "john_15",
+                "password": "Pass@word1!"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "boolean"
+                    },
+                    "status_code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "token": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "token"
+                      ],
+                      "x-apidog-ignore-properties": [],
+                      "x-apidog-orders": [
+                        "token"
+                      ]
+                    },
+                    "timestamp": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "status_code",
+                    "message",
+                    "data",
+                    "timestamp"
+                  ],
+                  "x-apidog-ignore-properties": [],
+                  "x-apidog-orders": [
+                    "status",
+                    "status_code",
+                    "message",
+                    "data",
+                    "timestamp"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": true,
+                      "status_code": 200,
+                      "message": "Success",
+                      "data": {
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG5fMTUiLCJpYXQiOjE3MTQ3MTA4MDEsImV4cCI6MTcxNDcxNDQwMX0.qMtiYTLwqgRgiSkYrb3-dGuEQoPY8xWFW6fa6a6xiy4"
+                      },
+                      "timestamp": "2024-05-03T04:33:21.625Z"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apidog": "https://apidog.com/web/project/520001/apis/api-7051281-run"
+      }
+    },
+    "/api/getprofile": {
+      "get": {
+        "summary": "Get Profile",
+        "x-apidog-folder": "YouApp",
+        "x-apidog-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "YouApp"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "Bearer {{token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "password": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "username",
+                  "password"
+                ],
+                "x-apidog-ignore-properties": [],
+                "x-apidog-orders": [
+                  "username",
+                  "password"
+                ]
+              },
+              "example": ""
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "boolean"
+                    },
+                    "status_code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "gender": {
+                          "type": "string"
+                        },
+                        "dob": {
+                          "type": "string"
+                        },
+                        "horoscope": {
+                          "type": "string"
+                        },
+                        "zodiac": {
+                          "type": "string"
+                        },
+                        "interest": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "gender",
+                        "dob",
+                        "horoscope",
+                        "zodiac",
+                        "interest"
+                      ],
+                      "x-apidog-ignore-properties": [],
+                      "x-apidog-orders": [
+                        "name",
+                        "gender",
+                        "dob",
+                        "horoscope",
+                        "zodiac",
+                        "interest"
+                      ]
+                    },
+                    "timestamp": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "status_code",
+                    "message",
+                    "data",
+                    "timestamp"
+                  ],
+                  "x-apidog-ignore-properties": [],
+                  "x-apidog-orders": [
+                    "status",
+                    "status_code",
+                    "message",
+                    "data",
+                    "timestamp"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": true,
+                      "status_code": 200,
+                      "message": "Success",
+                      "data": {
+                        "name": "John",
+                        "gender": "male",
+                        "dob": "1995-03-18",
+                        "horoscope": "Pisces",
+                        "zodiac": "Goat",
+                        "interest": [
+                          "Game",
+                          "Sport"
+                        ]
+                      },
+                      "timestamp": "2024-05-03T08:10:31.987Z"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apidog": "https://apidog.com/web/project/520001/apis/api-7052558-run"
+      }
+    },
+    "/api/createprofile": {
+      "post": {
+        "summary": "Create profile",
+        "x-apidog-folder": "YouApp",
+        "x-apidog-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "YouApp"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "Bearer {{token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "dob": {
+                    "type": "string"
+                  },
+                  "gender": {
+                    "type": "string"
+                  },
+                  "interest": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "name",
+                  "dob",
+                  "gender",
+                  "interest"
+                ],
+                "x-apidog-ignore-properties": [],
+                "x-apidog-orders": [
+                  "name",
+                  "dob",
+                  "gender",
+                  "interest"
+                ]
+              },
+              "example": {
+                "name": "John",
+                "dob": "1995-03-18",
+                "gender": "male",
+                "interest": [
+                  "Game",
+                  "Sport"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "boolean"
+                    },
+                    "status_code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "gender": {
+                          "type": "string"
+                        },
+                        "dob": {
+                          "type": "string"
+                        },
+                        "horoscope": {
+                          "type": "string"
+                        },
+                        "zodiac": {
+                          "type": "string"
+                        },
+                        "interest": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "gender",
+                        "dob",
+                        "horoscope",
+                        "zodiac",
+                        "interest"
+                      ],
+                      "x-apidog-ignore-properties": [],
+                      "x-apidog-orders": [
+                        "name",
+                        "gender",
+                        "dob",
+                        "horoscope",
+                        "zodiac",
+                        "interest"
+                      ]
+                    },
+                    "timestamp": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "status_code",
+                    "message",
+                    "data",
+                    "timestamp"
+                  ],
+                  "x-apidog-ignore-properties": [],
+                  "x-apidog-orders": [
+                    "status",
+                    "status_code",
+                    "message",
+                    "data",
+                    "timestamp"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": true,
+                      "status_code": 200,
+                      "message": "Success",
+                      "data": {
+                        "name": "John",
+                        "gender": "male",
+                        "dob": "1995-03-18",
+                        "horoscope": "Pisces",
+                        "zodiac": "Goat",
+                        "interest": [
+                          "Game",
+                          "Sport"
+                        ]
+                      },
+                      "timestamp": "2024-05-03T08:09:31.094Z"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apidog": "https://apidog.com/web/project/520001/apis/api-7059861-run"
+      }
+    },
+    "/api/updateprofile": {
+      "put": {
+        "summary": "Update profile",
+        "x-apidog-folder": "YouApp",
+        "x-apidog-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "YouApp"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "Bearer {{token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "dob": {
+                    "type": "string"
+                  },
+                  "gender": {
+                    "type": "string"
+                  },
+                  "interest": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "required": [
+                  "name",
+                  "dob",
+                  "gender",
+                  "interest"
+                ],
+                "x-apidog-ignore-properties": [],
+                "x-apidog-orders": [
+                  "name",
+                  "dob",
+                  "gender",
+                  "interest"
+                ]
+              },
+              "example": {
+                "name": "John 15",
+                "dob": "1995-01-18",
+                "gender": "male",
+                "interest": [
+                  "Game",
+                  "Sport"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "boolean"
+                    },
+                    "status_code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "gender": {
+                          "type": "string"
+                        },
+                        "dob": {
+                          "type": "string"
+                        },
+                        "horoscope": {
+                          "type": "string"
+                        },
+                        "zodiac": {
+                          "type": "string"
+                        },
+                        "interest": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "gender",
+                        "dob",
+                        "horoscope",
+                        "zodiac",
+                        "interest"
+                      ],
+                      "x-apidog-ignore-properties": [],
+                      "x-apidog-orders": [
+                        "name",
+                        "gender",
+                        "dob",
+                        "horoscope",
+                        "zodiac",
+                        "interest"
+                      ]
+                    },
+                    "timestamp": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "status_code",
+                    "message",
+                    "data",
+                    "timestamp"
+                  ],
+                  "x-apidog-ignore-properties": [],
+                  "x-apidog-orders": [
+                    "status",
+                    "status_code",
+                    "message",
+                    "data",
+                    "timestamp"
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apidog": "https://apidog.com/web/project/520001/apis/api-7059901-run"
+      }
+    },
+    "/api/sendmessage": {
+      "post": {
+        "summary": "Send Messages",
+        "x-apidog-folder": "YouApp",
+        "x-apidog-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "YouApp"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "Bearer {{token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user_id": {
+                    "type": "string"
+                  },
+                  "message": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "user_id",
+                  "message"
+                ],
+                "x-apidog-ignore-properties": [],
+                "x-apidog-orders": [
+                  "user_id",
+                  "message"
+                ]
+              },
+              "example": {
+                "user_id": "663442c105fc264fbdb57947",
+                "message": "Hi, What's up ?"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "boolean"
+                    },
+                    "status_code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "sender_id": {
+                          "type": "string"
+                        },
+                        "receiver_id": {
+                          "type": "string"
+                        },
+                        "message": {
+                          "type": "string"
+                        },
+                        "is_read": {
+                          "type": "integer"
+                        },
+                        "read_at": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "sender_id",
+                        "receiver_id",
+                        "message",
+                        "is_read",
+                        "read_at"
+                      ],
+                      "x-apidog-ignore-properties": [],
+                      "x-apidog-orders": [
+                        "id",
+                        "sender_id",
+                        "receiver_id",
+                        "message",
+                        "is_read",
+                        "read_at"
+                      ]
+                    },
+                    "timestamp": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "status_code",
+                    "message",
+                    "data",
+                    "timestamp"
+                  ],
+                  "x-apidog-ignore-properties": [],
+                  "x-apidog-orders": [
+                    "status",
+                    "status_code",
+                    "message",
+                    "data",
+                    "timestamp"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": true,
+                      "status_code": 200,
+                      "message": "Success",
+                      "data": {
+                        "id": "6634bda3029e0fd03bf9b141",
+                        "sender_id": "6634574b928d44c1947bd7c3",
+                        "receiver_id": "663442c105fc264fbdb57947",
+                        "message": "Hi, What's up ?",
+                        "is_read": 0,
+                        "read_at": ""
+                      },
+                      "timestamp": "2024-05-03T10:34:11.876Z"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apidog": "https://apidog.com/web/project/520001/apis/api-7067081-run"
+      }
+    },
+    "/api/viewmessages": {
+      "post": {
+        "summary": "View messages",
+        "x-apidog-folder": "YouApp",
+        "x-apidog-status": "developing",
+        "deprecated": false,
+        "description": "",
+        "tags": [
+          "YouApp"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "",
+            "required": true,
+            "example": "Bearer {{token}}",
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "user_id": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "user_id"
+                ],
+                "x-apidog-ignore-properties": [],
+                "x-apidog-orders": [
+                  "user_id"
+                ]
+              },
+              "example": {
+                "user_id": "663442c105fc264fbdb57947"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "status": {
+                      "type": "boolean"
+                    },
+                    "status_code": {
+                      "type": "integer"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "gender": {
+                          "type": "string"
+                        },
+                        "dob": {
+                          "type": "string"
+                        },
+                        "horoscope": {
+                          "type": "string"
+                        },
+                        "zodiac": {
+                          "type": "string"
+                        },
+                        "interest": {
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "gender",
+                        "dob",
+                        "horoscope",
+                        "zodiac",
+                        "interest"
+                      ],
+                      "x-apidog-ignore-properties": [],
+                      "x-apidog-orders": [
+                        "name",
+                        "gender",
+                        "dob",
+                        "horoscope",
+                        "zodiac",
+                        "interest"
+                      ]
+                    },
+                    "timestamp": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "status",
+                    "status_code",
+                    "message",
+                    "data",
+                    "timestamp"
+                  ],
+                  "x-apidog-ignore-properties": [],
+                  "x-apidog-orders": [
+                    "status",
+                    "status_code",
+                    "message",
+                    "data",
+                    "timestamp"
+                  ]
+                },
+                "examples": {
+                  "1": {
+                    "summary": "Success",
+                    "value": {
+                      "status": true,
+                      "status_code": true,
+                      "message": "Success",
+                      "data": {
+                        "id": "6634574b928d44c1947bd7c3",
+                        "username": "john_15",
+                        "email": "john.15@test.xxx"
+                      },
+                      "timestamp": "2024-05-03T03:17:31.827Z"
+                    }
+                  },
+                  "2": {
+                    "summary": "Success",
+                    "value": {
+                      "status": true,
+                      "status_code": 200,
+                      "message": "Success",
+                      "data": {
+                        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImpvaG5fMTUiLCJpYXQiOjE3MTQ3MTA4MDEsImV4cCI6MTcxNDcxNDQwMX0.qMtiYTLwqgRgiSkYrb3-dGuEQoPY8xWFW6fa6a6xiy4"
+                      },
+                      "timestamp": "2024-05-03T04:33:21.625Z"
+                    }
+                  },
+                  "3": {
+                    "summary": "Success",
+                    "value": {
+                      "status": true,
+                      "status_code": 200,
+                      "message": "Success",
+                      "data": {
+                        "name": "John",
+                        "gender": "male",
+                        "dob": "1995-03-18",
+                        "horoscope": "Pisces",
+                        "zodiac": "Goat",
+                        "interest": [
+                          "Game",
+                          "Sport"
+                        ]
+                      },
+                      "timestamp": "2024-05-03T08:10:31.987Z"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "x-run-in-apidog": "https://apidog.com/web/project/520001/apis/api-7067139-run"
+      }
+    }
+  },
+  "components": {
+    "schemas": {}
+  },
+  "servers": [
+    {
+      "url": "",
+      "description": "Testing Env"
+    }
+  ]
+}

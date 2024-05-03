@@ -21,6 +21,7 @@ export interface TokenConfig {
 }
 
 export interface Config {
+  host: string,
   port: number,
   token: TokenConfig,
   database: {
@@ -32,6 +33,7 @@ export interface Config {
 }
 
 export default (): Config => ({
+  host: process.env.APP_HOST || 'http://localhost:3000',
   port: parseInt(process.env.NODE_PORT, 0) || 3000,
   token: {
     secret: process.env.TOKEN_SECRET,
