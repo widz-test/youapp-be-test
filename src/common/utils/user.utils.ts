@@ -25,3 +25,11 @@ export async function findUserByUsernameOrEmail(username: string, repository: Us
     }
     return user;
 }
+
+export async function findUserByID(id: string, repository: UserRepository): Promise<User> {
+    const user = await repository.findById(id);
+    if (!user) {
+        throw new DisplayableException({}, `User not found`);
+    } 
+    return user;
+}

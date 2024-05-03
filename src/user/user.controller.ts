@@ -2,7 +2,6 @@ import { Body, Controller, Get, Post, Put, UseGuards, UseInterceptors } from '@n
 import { UserService } from "./user.service";
 import { ProfileInterceptor } from "./interceptor/profile.interceptor";
 import { ProfileDto } from "./dto/profile.dto";
-import { AuthGuard } from "src/auth/auth.guard";
 import { User } from "src/common/decorator/user.decorator";
 
 @Controller('')
@@ -15,11 +14,9 @@ export class UserController {
         return await this.userService.createProfile(user, payload);
     }
 
-    @UseGuards(AuthGuard)
     @UseInterceptors(ProfileInterceptor)
     @Get('getProfile')
     async getProfile(@User() user) {
-        console.log(user)
         return await this.userService.getProfile(user);
     }
 

@@ -23,7 +23,7 @@ export class ConsumerService extends AbstractRabbit implements OnModuleInit {
       await this.connect();
       await this.createConfirmChannel();
       // Consumer
-      await this.consume("email");
+      await this.consume("chat");
     } catch(e) {
       console.log(`Queue rabbit consumer error: `, e);
       setTimeout(() => {
@@ -61,8 +61,10 @@ export class ConsumerService extends AbstractRabbit implements OnModuleInit {
       const data = Buffer.isBuffer(content) ? JSON.parse(content.toString()) : null;
       // Consumer Queue
       switch(routingKey) {
-        case `email`:
-          console.log(`Consume queue email with payload: `, data);
+        case `chat`:
+          const {sender_id, receiver_id, chat} = data ?? {};
+          console.log(`Consume queue chat with payload: `, data);
+          console.log(`Hi, user ${receiver_id}, you got message from user ${sender_id}: ${chat}`);
           break;
       }
     } catch(e) {
