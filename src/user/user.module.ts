@@ -6,6 +6,7 @@ import { ProfileModule } from './profile/profile.module';
 @Module({
   imports: [ProfileModule],
   providers: [UserService],
+  exports: [UserService],
   controllers: [UserController]
 })
 export class UserModule {}

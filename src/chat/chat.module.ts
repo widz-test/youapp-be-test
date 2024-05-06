@@ -8,6 +8,7 @@ import { ChatWsGuard } from "./chat_ws.guard";
 @Module({
   imports: [RabbitModule],
   providers: [ChatService, ChatGateway, ChatWsGuard],
+  exports: [ChatService],
   controllers: [ChatController]
 })
 export class ChatModule {}

@@ -6,7 +6,7 @@ export type UserDocument = User & Document;
 
 @Schema()
 export class User extends BaseModel {
-    @Prop({required: true})
+    @Prop({required: false})
     profile_id: string;
 
     @Prop({required: true})

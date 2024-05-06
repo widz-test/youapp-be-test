@@ -1,6 +1,6 @@
 import { IsArray, IsDateString, IsEnum, IsOptional, IsString, Matches } from "class-validator";
 
-enum Gender {
+export enum Gender {
   MALE = "male",
   FEMALE = "female"
 } 

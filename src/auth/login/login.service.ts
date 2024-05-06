@@ -27,6 +27,7 @@ export class LoginService {
                 username: user.username
             });
         } catch (e) {
+            console.log(e)
             throw new UnauthorizedException();
         }
         return {
